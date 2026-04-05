@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  username     String    @unique
+  passwordHash String
+  progress     Progress?
+}
+
+model Progress {
+  id         Int     @id @default(autoincrement())
+  userId     Int     @unique
+  tasks      String  @default("{}")
+  examDate   String?
+  studyDates String  @default("[]")
+  user       User    @relation(fields: [userId], references: [id])
+}
