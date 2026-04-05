@@ -77,7 +77,8 @@ const daysUntil = (d) => {
         (new Date(d + 'T00:00:00').getTime() - new Date(new Date().toDateString()).getTime())
         / 86400000
     );
-    const subPct = (tasks, si, sub) => {
+};
+const subPct = (tasks, si, sub) => {
         let c = 0, t = 0;
         sub.modules.forEach((_, mi) => {
             t += 2;
