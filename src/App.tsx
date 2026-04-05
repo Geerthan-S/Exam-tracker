@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import StudyTracker from './StudyTracker';
 import AuthScreen from './AuthScreen';
 
-const API_URL = 'http://localhost:3001/api';
-
+const API_URL = import.meta.env.PROD 
+  ? '/api' 
+  : 'http://localhost:3001/api';
 function App() {
   const [token, setToken] = useState<string | null>(localStorage.getItem('auth_token'));
   const [username, setUsername] = useState<string | null>(localStorage.getItem('auth_username'));
