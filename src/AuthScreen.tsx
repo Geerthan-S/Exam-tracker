@@ -10,7 +10,7 @@ const AuthScreen = ({ onLogin, onRegister }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     if (!username || !password) {
       setError('Please fill in all fields.');
       return;
@@ -51,10 +51,10 @@ const AuthScreen = ({ onLogin, onRegister }) => {
       }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <div style={{ fontSize: '32px', marginBottom: '16px' }}>🎯</div>
-          <h2 style={{ 
-            fontSize: '24px', 
-            fontWeight: 'bold', 
-            margin: '0 0 8px 0' 
+          <h2 style={{
+            fontSize: '24px',
+            fontWeight: 'bold',
+            margin: '0 0 8px 0'
           }}>
             {isLogin ? 'Welcome Back' : 'Create Account'}
           </h2>
@@ -148,10 +148,10 @@ const AuthScreen = ({ onLogin, onRegister }) => {
               transition: 'background-color 0.2s, transform 0.1s',
               opacity: loading ? 0.7 : 1
             }}
-            onMouseOver={(e) => { if (!loading) e.target.style.backgroundColor = '#2563eb' }}
-            onMouseOut={(e) => { if (!loading) e.target.style.backgroundColor = '#3b82f6' }}
-            onMouseDown={(e) => { if (!loading) e.target.style.transform = 'scale(0.98)' }}
-            onMouseUp={(e) => { if (!loading) e.target.style.transform = 'scale(1)' }}
+            onMouseOver={(e) => { if (!loading) e.currentTarget.style.backgroundColor = '#2563eb' }}
+            onMouseOut={(e) => { if (!loading) e.currentTarget.style.backgroundColor = '#3b82f6' }}
+            onMouseDown={(e) => { if (!loading) e.currentTarget.style.transform = 'scale(0.98)' }}
+            onMouseUp={(e) => { if (!loading) e.currentTarget.style.transform = 'scale(1)' }}
           >
             {loading ? 'Processing...' : (isLogin ? 'Sign In' : 'Create Account')}
           </button>
@@ -172,8 +172,8 @@ const AuthScreen = ({ onLogin, onRegister }) => {
               textDecoration: 'none',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => e.target.style.color = '#cbd5e1'}
-            onMouseOut={(e) => e.target.style.color = '#94a3b8'}
+            onMouseOver={(e) => e.currentTarget.style.color = '#cbd5e1'}
+            onMouseOut={(e) => e.currentTarget.style.color = '#94a3b8'}
           >
             {isLogin ? "Don't have an account? Sign up" : "Already have an account? Sign in"}
           </button>
